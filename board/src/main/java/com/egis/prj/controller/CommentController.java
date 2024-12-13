@@ -1,15 +1,15 @@
 package com.egis.prj.controller;
 
 import com.egis.prj.service.CommentService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequiredArgsConstructor
 public class CommentController {
-    @Autowired
-    private CommentService commentService;
+    private final CommentService commentService;
 
     // 댓글 작성 처리
     @PostMapping("/submitComment")

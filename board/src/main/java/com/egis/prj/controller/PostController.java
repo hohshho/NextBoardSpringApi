@@ -2,6 +2,7 @@ package com.egis.prj.controller;
 
 import com.egis.prj.model.PostWriteVO;
 import com.egis.prj.service.PostService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,10 +10,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor
 public class PostController {
-
-    @Autowired
-    private PostService postService;
+    private final PostService postService;
 
     @PostMapping(value = "/writeBoard", consumes = "application/json")
     public Map<String, String> submitPost(@RequestBody PostWriteVO postWriteVO) {

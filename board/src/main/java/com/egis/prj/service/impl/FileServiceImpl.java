@@ -3,6 +3,7 @@ package com.egis.prj.service.impl;
 import com.egis.prj.dao.FileDAO;
 import com.egis.prj.model.FileVO;
 import com.egis.prj.service.FileService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -13,9 +14,9 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class FileServiceImpl implements FileService {
-    @Autowired
-    private FileDAO fileDAO;
+    private final FileDAO fileDAO;
 
     @Override
     public void updateFilePostId(int fileId, int postId) {

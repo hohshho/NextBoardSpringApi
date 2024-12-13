@@ -1,6 +1,7 @@
 package com.egis.prj.dao;
 
 import com.egis.prj.model.PostVO;
+import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -8,10 +9,9 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 
 @Repository("PostDAO")
+@RequiredArgsConstructor
 public class PostDAO {
-
-    @Autowired
-    private SqlSessionTemplate sqlSessionTemplate;
+    private final SqlSessionTemplate sqlSessionTemplate;
 
     public void deletePostById(int id) {
         // MyBatis 매퍼의 deletePostById SQL 쿼리 호출

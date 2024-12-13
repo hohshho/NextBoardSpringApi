@@ -3,6 +3,7 @@ package com.egis.prj.service.impl;
 import com.egis.prj.dao.CommentDAO;
 import com.egis.prj.model.CommentVO;
 import com.egis.prj.service.CommentService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +11,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class CommentServiceImpl implements CommentService {
-    @Autowired
-    private CommentDAO commentDAO;
+    private final CommentDAO commentDAO;
 
 
     @Override

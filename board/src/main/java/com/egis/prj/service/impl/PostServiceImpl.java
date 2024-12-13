@@ -7,6 +7,7 @@ import com.egis.prj.model.PostWriteVO;
 import com.egis.prj.service.CommentService;
 import com.egis.prj.service.FileService;
 import com.egis.prj.service.PostService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,14 +15,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class PostServiceImpl implements PostService {
-
-    @Autowired
-    private PostDAO postDAO;
-    @Autowired
-    private FileService fileService;
-    @Autowired
-    private CommentService commentService;
+    private final PostDAO postDAO;
+    private final FileService fileService;
+    private final CommentService commentService;
 
     @Override
     public PostVO getPostById(int id) {

@@ -1,6 +1,7 @@
 package com.egis.prj.dao;
 
 import com.egis.prj.model.FileVO;
+import lombok.RequiredArgsConstructor;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -10,10 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 @Repository("FileDAO")
+@RequiredArgsConstructor
 public class FileDAO {
-
-    @Autowired
-    private SqlSessionTemplate sqlSessionTemplate;
+    private final SqlSessionTemplate sqlSessionTemplate;
 
     public FileVO insertFile(FileVO file) {
         sqlSessionTemplate.insert("FileMapper.insertFile", file);

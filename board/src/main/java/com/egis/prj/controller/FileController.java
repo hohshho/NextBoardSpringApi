@@ -2,6 +2,7 @@ package com.egis.prj.controller;
 
 import com.egis.prj.model.FileVO;
 import com.egis.prj.service.FileService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -22,9 +23,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
+@RequiredArgsConstructor
 public class FileController {
-    @Autowired
-    private FileService fileService;
+    private final FileService fileService;
 
     @PostMapping("/deleteFile")
     @ResponseBody

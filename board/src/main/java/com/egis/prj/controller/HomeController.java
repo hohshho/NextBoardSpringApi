@@ -7,6 +7,7 @@ import com.egis.prj.model.PostVO;
 import com.egis.prj.service.CommentService;
 import com.egis.prj.service.FileService;
 import com.egis.prj.service.PostService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,14 +19,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class HomeController {
-
-    @Autowired
-    private PostService postService;
-    @Autowired
-    private FileService fileService;
-    @Autowired
-    private CommentService commentService;
+    private final PostService postService;
+    private final FileService fileService;
+    private final CommentService commentService;
 
     @GetMapping("/")
     public String listBoard(@RequestParam(defaultValue = "1") int page,
@@ -49,10 +47,10 @@ public class HomeController {
     public String detail(@RequestParam("id") int id, Model model) {
         // 게시글 조회
         PostVO post = postService.getPostById(id);
-        
+
         // 게시글과 연관된 file조회
         List<FileVO> fileList = fileService.getFileByPostId(post.getId());
-        
+
         // 게시글과 연관된 Comment조회
         List<CommentVO> commentList = commentService.getCommentsByPostId(post.getId());
 
