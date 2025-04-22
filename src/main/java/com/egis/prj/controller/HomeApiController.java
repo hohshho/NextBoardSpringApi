@@ -89,7 +89,6 @@ public class HomeApiController {
         // 해당 게시글을 삭제
         postService.deletePost(id);
 
-        // 삭제 후 목록 페이지로 리디렉션
-        return "true";
+        return "success";
     }
 }
